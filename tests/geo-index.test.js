@@ -35,10 +35,10 @@ describe('geoindex', function () {
         assert.deepEqual(generatedIndex, expectedIndexData)
 
         // also make sure certain subzone is written
-        fs.stat(TEST_DATA_DIR + '/b/b/d/c/d/d/geo.buf',
+        fs.stat(TEST_DATA_DIR + '/geo.dat',
           function (err, stats) {
             assert.isNotOk(err)
-            var data = new Pbf(fs.readFileSync(TEST_DATA_DIR + '/b/b/d/c/d/d/geo.buf'))
+            var data = new Pbf(fs.readFileSync(TEST_DATA_DIR + '/geo.dat'))
 
             assert.deepEqual(geobuf.decode(data), require('./fixtures/expectedSubzone.json'))
             done()
